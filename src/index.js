@@ -20,7 +20,8 @@ app.use((req, res, next) => {
   });
   next();
 });
-
+app.use(express.json({ limit: '1mb' }));
+app.use(express.urlencoded({ extended: true })); // ← add this
 app.use('/', metadataRoute);
 app.use('/', offerRoute);
 app.use('/', tokenRoute);
